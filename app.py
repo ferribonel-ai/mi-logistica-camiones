@@ -73,4 +73,5 @@ with col_vis:
     pdf.set_font("Arial", '', 12); pdf.ln(10)
     pdf.cell(0, 10, f"Camión: {L}x{W}x{H} | Total: {n_pie+n_tumb} bobinas", ln=1)
     buf = io.BytesIO(); fig.savefig(buf, format='png'); pdf.image(buf, x=10, y=50, w=190)
-    st.download_button("📩 Descargar Packing List PDF", data=pdf.output(dest='S'), file_name="Carga.pdf")
+    st.download_button("📩 Descargar Packing List PDF", data=bytes(pdf.output()), file_name="Carga.pdf", mime="application/pdf")
+
